@@ -13,4 +13,16 @@
     <string name="product_name">Product Name</string>
     <string name="owner">Owner</string>
     <string name="year_purchased">Year Purchased</string>
+    <string name="product_desc">Product Description</string>
+    <string name="qty">Quantity</string>
+    <string name="ppu">Price per Unit</string>
+    <!-- User creation / login -->
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">LOG IN</string>
+    <string name="signup">CREATE ACCOUNT</string>
+    <string name="password_confirm">Confirm Password</string>
+
 </resources>

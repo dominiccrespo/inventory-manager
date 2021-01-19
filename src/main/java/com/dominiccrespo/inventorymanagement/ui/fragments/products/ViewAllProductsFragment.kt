@@ -1,10 +1,11 @@
-package com.dominiccrespo.inventorymanagement
+package com.dominiccrespo.inventorymanagement.ui.fragments.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.dominiccrespo.inventorymanagement.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.dominiccrespo.inventorymanagement.FirstFragment"
+        android:name="com.dominiccrespo.inventorymanagement.ui.fragments.products.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -20,14 +20,19 @@
     </fragment>
     <fragment
         android:id="@+id/AddProductFragment"
-        android:name="com.dominiccrespo.inventorymanagement.AddProductFragment"
+        android:name="com.dominiccrespo.inventorymanagement.ui.fragments.products.AddProductFragment"
         android:label="@string/add_product_label"
         tools:layout="@layout/fragment_add_product">
     </fragment>
     <fragment
         android:id="@+id/ViewAllProductsFragment"
-        android:name="com.dominiccrespo.inventorymanagement.ViewAllProductsFragment"
+        android:name="com.dominiccrespo.inventorymanagement.ui.fragments.products.ViewAllProductsFragment"
         android:label="All Products"
         tools:layout="@layout/fragment_view_all_products">
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.dominiccrespo.inventorymanagement.ui.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

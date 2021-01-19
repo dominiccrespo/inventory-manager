@@ -10,8 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InventoryManagement">
         <activity
-            android:name="com.dominiccrespo.inventorymanagement.MainActivity"
+            android:name="com.dominiccrespo.inventorymanagement.ui.activity.MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/Theme.InventoryManagement.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dominiccrespo.inventorymanagement.ui.activity.UserActivity"
+            android:label="User Registration"
             android:theme="@style/Theme.InventoryManagement.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

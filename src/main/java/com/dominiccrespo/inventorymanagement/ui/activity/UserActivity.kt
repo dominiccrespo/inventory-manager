@@ -1,23 +1,20 @@
-package com.dominiccrespo.inventorymanagement
+package com.dominiccrespo.inventorymanagement.ui.activity
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
+import com.dominiccrespo.inventorymanagement.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         setSupportActionBar(findViewById(R.id.toolbar))
-
-
-        database = Firebase.database.reference
 
     }
 
