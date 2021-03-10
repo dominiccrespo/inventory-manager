@@ -27,9 +27,9 @@ class CreateOrLoginUserFragment : Fragment() {
             findNavController().navigate(R.id.action_createOrLoginUserFragment_to_createAccountFragment3)
         }
 
-       /* view.findViewById<Button>(R.id.view_all_inventory_btn).setOnClickListener{
-            findNavController().navigate()
-        }*/
+       view.findViewById<Button>(R.id.goToUserLogin).setOnClickListener{
+            findNavController().navigate(R.id.action_createOrLoginUserFragment_to_loginFragment)
+        }
 
 
     }

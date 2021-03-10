@@ -21,8 +21,13 @@
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="login">LOG IN</string>
+    <string name="login">LOGIN</string>
     <string name="signup">CREATE ACCOUNT</string>
     <string name="password_confirm">Confirm Password</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="have_account">Already Have An Account?</string>
+    <string name="password_reset">SEND PASSWORD RESET EMAIL</string>
+    <!-- Other User Strings / Logout -->
+    <string name="logout">Logout</string>
 
 </resources>

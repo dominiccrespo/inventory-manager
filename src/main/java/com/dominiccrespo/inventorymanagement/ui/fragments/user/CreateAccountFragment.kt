@@ -1,6 +1,7 @@
 package com.dominiccrespo.inventorymanagement.ui.fragments.user
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -11,13 +12,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.dominiccrespo.inventorymanagement.R
+import com.dominiccrespo.inventorymanagement.ui.activity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class CreateAccountFragment : Fragment() {
-//    UI Elements
+//    UI Elems
     private var etFirstName: EditText? = null
     private var etLastName: EditText? = null
     private var etEmail: EditText? = null
@@ -25,6 +28,7 @@ class CreateAccountFragment : Fragment() {
     private var etPasswordConfirm: EditText? = null
     private var btnCreateAccount: Button? = null
     private var mProgressBar: ProgressDialog? = null
+    private var btnLogin: Button? = null
 
 //    Firebase references
     private var mDatabaseReference: DatabaseReference? = null
@@ -52,6 +56,7 @@ class CreateAccountFragment : Fragment() {
         etPassword = view.findViewById(R.id.editTextPassword) as EditText
         etPasswordConfirm = view.findViewById(R.id.editTextPasswordConfirm) as EditText
         btnCreateAccount = view.findViewById(R.id.createAccountBtn) as Button
+        btnLogin = view.findViewById(R.id.createLoginBtn) as Button
         mProgressBar = ProgressDialog(activity)
 
         mDatabase = FirebaseDatabase.getInstance()
@@ -59,6 +64,7 @@ class CreateAccountFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
 
         btnCreateAccount!!.setOnClickListener{ createNewAccount() }
+        btnLogin!!.setOnClickListener{findNavController().navigate(R.id.action_createAccountFragment3_to_loginFragment)}
 
     }
 
@@ -93,10 +99,10 @@ class CreateAccountFragment : Fragment() {
                             currentUserDb.child("firstName").setValue(firstName)
                             currentUserDb.child("lastName").setValue(lastName)
 
-                            updateUserInfoAndUI()
+                            nextActivity()
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                            Toast.makeText(requireContext(), "Authentication failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), task.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
 
                     }
@@ -111,12 +117,24 @@ class CreateAccountFragment : Fragment() {
         }
     }
 
-    private fun updateUserInfoAndUI(){
-
+    private fun nextActivity(){
+        val intent = Intent(requireActivity(), MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     private fun verifyEmail(){
-
+        val mUser = mAuth!!.currentUser
+        mUser!!.sendEmailVerification()
+                .addOnCompleteListener(requireActivity()) {
+                    task ->
+                    if(task.isSuccessful) {
+                        Toast.makeText(requireContext(), "Verification email sent to " + mUser.getEmail(), Toast.LENGTH_SHORT).show()
+                    } else {
+                        Log.e(TAG, "sendEmailVerification", task.exception)
+                        Toast.makeText(requireActivity(), "Failed to send verification email.", Toast.LENGTH_SHORT).show()
+                    }
+                }
     }
 
 }

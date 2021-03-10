@@ -12,10 +12,34 @@
         <action
             android:id="@+id/action_createOrLoginUserFragment_to_createAccountFragment3"
             app:destination="@id/createAccountFragment3" />
+        <action
+            android:id="@+id/action_createOrLoginUserFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment3"
         android:name="com.dominiccrespo.inventorymanagement.ui.fragments.user.CreateAccountFragment"
         android:label="fragment_create_user"
-        tools:layout="@layout/fragment_create_user" />
+        tools:layout="@layout/fragment_create_user" >
+        <action
+            android:id="@+id/action_createAccountFragment3_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dominiccrespo.inventorymanagement.ui.fragments.user.LoginFragment"
+        android:label="fragment_user_login"
+        tools:layout="@layout/fragment_user_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_createAccountFragment3"
+            app:destination="@id/createAccountFragment3" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.dominiccrespo.inventorymanagement.ui.fragments.user.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
 </navigation>

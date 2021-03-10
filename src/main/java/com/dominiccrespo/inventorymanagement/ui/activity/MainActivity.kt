@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
+import android.view.MenuItem
 import com.dominiccrespo.inventorymanagement.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -30,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             setSupportActionBar(findViewById(R.id.toolbar))
         }
         else {
-            Log.d("test", "Trying to load activity")
            val activityIntent = Intent(this, UserActivity::class.java)
             startActivity(activityIntent)
         }
@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
+    }
+
+    override fun onOptionsItemsSelected(item: MenuItem): Boolean = when (item.itemId) {
+      R.id.action_logout -> {
+          Log.d("test", "In Logout")
+          true
+      }
+        else -> super.onOptionsItemSelected(item)
     }
 
 }

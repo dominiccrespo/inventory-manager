@@ -4,7 +4,11 @@
     tools:context="com.dominiccrespo.inventorymanagement.ui.activity.MainActivity">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="101"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="102"
+        android:title="@string/logout" />
 </menu>
